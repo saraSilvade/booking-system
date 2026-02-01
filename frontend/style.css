@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 1.25rem;
+  background-color: rgb(228, 232, 246);
+}
+header{
+    text-align: left;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    background-color: #fff;
+    width: 80%;
+
+      padding: 28.8px;
+  border-radius: .75rem;
+  box-shadow: 0 .25rem .625rem rgba(0,0,0,0.1);
+
+}
+header h1{
+    font-size: 24px;
+    color:rgb(59, 60, 67);
+
+}
+.form-section{
+width: 80%;
+    background-color: #fff;
+   
+    padding: 32px;
+      padding: 1.875rem;
+  border-radius: .75rem;
+  box-shadow: 0 .25rem .625rem rgba(0,0,0,0.1);
+}
+#form-container{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+row-gap: 32px;
+column-gap: 1.25rem;
+}
+
+.form-section h2{
+    font-size: 17.6px;
+    font-weight: lighter;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.input-group label{
+    color: #00000087;
+}
+input{
+    margin-bottom: 16px;
+    margin-top: 16px;
+     padding:9.6px;
+     border: .0625rem solid #cbd5e1;
+     border-radius: 4.8px;
+     cursor: pointer;
+   
+}
+textarea{
+    height: 160px;
+       border: .0625rem solid #cbd5e1;
+       border-radius:  4.8px;
+}
+.date-container {
+  
+width: 100%;
+
+}
+.date-container #time, #date{
+   
+    margin-right: .3125rem;
+}
+#create-button{
+    width: 160px;
+    padding:12.8px;
+    margin-top: 9.6px;
+    border-radius: 4.8px;
+    color: white;
+    font-size: 14.4px;
+    border: none;
+    background-color: rgb(69, 139, 251);
+    cursor: pointer;
+}
+
+.bookings-section{
+   width: 80%;
+    background-color: #fff;
+    padding: 32px;
+      padding: 1.875rem;
+  border-radius: .75rem;
+  box-shadow: 0 .25rem .625rem rgba(0,0,0,0.1);
+  margin-top: 32px;
+}
+.bookings-section h2{
+    font-size: medium;
+    font-weight: lighter;
+  
+}
+
+table{
+    width: 100%;
+   border-collapse: collapse;
+   margin-top: .625rem;
+}
+
+
+th { 
+    text-align: left;
+     padding: .75rem; 
+     color: #64748be7; 
+     font-size: 0.9rem; 
+   border-bottom: .12rem 
+     solid #edf0f4c9; 
+}
+
+td{
+  padding: .9375rem .75rem;
+     border-bottom: .12rem 
+     solid #edf0f4c9; 
+     font-size: 0.89rem;
+     font-weight:lighter;
+}
+
+
+.edit-btn{
+       padding:0.8rem 2.4rem;
+       border-radius: 0.2rem;
+       border: none;
+        background-color: rgb(69, 139, 251);
+        color: #fff;
+        font-size: 0.9rem;
+        cursor: pointer;
+}
+.delete-btn{
+    padding:0.8rem 2.4rem;
+       border-radius: 0.3rem;
+       border:none;
+       background-color: #ef4444;
+        color: #fff;
+        font-size: 0.9rem;
+        cursor: pointer;
+}
