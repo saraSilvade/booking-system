@@ -52,9 +52,13 @@ router.delete("/:id", apiKeyAuth, async (req, res)=>{
     res.status(404).json({
       message : "The user id is not found"
     })
+   
+  }else{
     res.status(200).json({
       message: "The appointment has been canceled"
     })
+
   }
+   
 })
 module.exports = router;

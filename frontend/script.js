@@ -37,14 +37,11 @@ async function fetchAppointments(){
 
         <td >
 
-
      
  <button type="button"  class="edit-btn" onclick='editAppointment(${JSON.stringify(app)})'>Edit</button>
          <button type="button"   class="delete-btn" onclick="deleteAppointment('${app._id}')">Delete</button>
         </td>
         </tr>
-
-
         `
      
     });
@@ -54,7 +51,6 @@ async function fetchAppointments(){
 
 
 async function createAppointment(){
-
 
     const id = editedId.value;
 
@@ -90,7 +86,7 @@ if(id){
 }
 
 clearForm();
-window.location.reload();
+
 fetchAppointments();
 }
 
@@ -108,44 +104,44 @@ function clearForm(){
 
 }
 
+   
+ async function deleteAppointment(id) {
+    const confirmDelete = confirm("Are you sure you want to delete this appointment?");
+    if (!confirmDelete) return;
 
-async function deleteAppointment(id){
+    try {
+        const res = await fetch(`${API_URL}/${id}`, {
+            method: "DELETE",
+            headers: {
+                "x-api-key": API_KEY
+            }
+        });
 
-    const confirmDelete = confirm("Are you sure you want to delete this appointment");
 
-    if(!confirmDelete){
-        return
-    }
-    let res; 
 
-    try{
-  res = await fetch(`${API_URL}/${id}`, {
-        method: "DELETE", 
-        headers:{
- "x-api-key": API_KEY
+
+        if(res.ok){
+                    console.log("Deleted successfully");
+
+        await fetchAppointments();
+
+        }else{
+  console.error("Deleting appointment failed:", await res.text());
+            return;
         }
-    })
-    
-    } 
-    
-    
-    
-    
-    catch(error){
- console.error("Network error: ", error);
+    } catch (error) {
+        console.error("Network error:", error);
     }
-  
-    
-    if(!res.ok){
-        console.error("Deleteing appointment is failed:", await res.text());
-       return;
-    }
- 
-console.log("Deleted successfulåly");
 
 
-    fetchAppointments();
+
+
+
+
 }
+
+
+
 
 
 
