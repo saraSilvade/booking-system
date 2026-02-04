@@ -1,6 +1,7 @@
 
 const API_URL = "http://localhost:3000/api/appointments";
-const API_KEY = "my-secret-key";
+let API_KEY = sessionStorage.getItem("admin_token");
+
 
 
 const form = document.getElementById("form-container");
@@ -15,7 +16,14 @@ const editedId = document.getElementById('editId');
 const addBtn = document.getElementById("create-button");
  const tableBody = document.getElementById("appointments");
 
-
+// temporary solution for API key security
+if (!API_KEY) {
+    const input = prompt("Enter Admin Key to enable Edit/Delete appointments:");
+    if (input) {
+        sessionStorage.setItem("admin_token", input);
+        API_KEY = input;
+    }
+}
 
 async function fetchAppointments(){
     const res = await fetch(API_URL);
@@ -79,7 +87,9 @@ if(id){
         method: "PUT", 
         headers:{
              "Content-Type": "application/json", 
-             "x-api-key": API_KEY
+           
+    "x-api-key": API_KEY
+  
         },
         body: JSON.stringify(appointment)
     })
@@ -127,11 +137,11 @@ function toastMessage(){
         transform: translate(-50%, -50%);
         background-color: #7371e4ff;
         color: white;
-        padding: 1.2rem 1rem;
-        border-radius: 5px;
-        font-size: 0.8rem;
+        padding: 19.2px 16px;
+        border-radius: .3125rem;
+        font-size: 12.8px;
         z-index: 1000;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 .25rem .375rem rgba(0, 0, 0, 0.1);
     `;
     document.body.appendChild(div);
 
@@ -152,9 +162,9 @@ function toastMessage(){
     try {
         const res = await fetch(`${API_URL}/${id}`, {
             method: "DELETE",
-            headers: {
-                "x-api-key": API_KEY
-            }
+           headers: {
+    "x-api-key": API_KEY
+  }
         });
 
 
