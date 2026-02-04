@@ -16,6 +16,22 @@ router.get("/", async(req, res)=>{
     }
 }); 
 
+router.get("/:id", apiKeyAuth, async(req,res)=>{
+
+  try{
+    const appointment = await Appointment.findById(req.params.id)
+    if(!appointment){
+      res.status(404).json({Message: "Appointment not found"});
+    }else{
+res.status(200).json(appointment);
+    }
+
+  }catch(error){
+    res.status(500).json({Message: "Error", error})
+
+  }
+})
+
 router.post("/", async (req, res) =>{
     try {
         const appointment = new Appointment(req.body);

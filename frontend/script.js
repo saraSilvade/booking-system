@@ -1,6 +1,7 @@
 
+
 const API_URL = "http://localhost:3000/api/appointments";
-let API_KEY = sessionStorage.getItem("admin_token");
+
 
 
 
@@ -16,13 +17,8 @@ const editedId = document.getElementById('editId');
 const addBtn = document.getElementById("create-button");
  const tableBody = document.getElementById("appointments");
 
-// temporary solution for API key security
-if (!API_KEY) {
-    const input = prompt("Enter Admin Key to enable Edit/Delete appointments:");
-    if (input) {
-        sessionStorage.setItem("admin_token", input);
-        API_KEY = input;
-    }
+async function getAdminKey() {
+    return prompt("Please enter your password to delete or edit an appointment:");
 }
 
 async function fetchAppointments(){
@@ -69,7 +65,7 @@ async function fetchAppointments(){
 
 
 async function createAppointment(){
-
+   
     const id = editedId.value;
 
     const appointment = {
@@ -83,13 +79,13 @@ async function createAppointment(){
 
 
 if(id){
+       
+    const adminAuth = window.currentAdminKey;
     await fetch(`${API_URL}/${id}`, {
         method: "PUT", 
         headers:{
-             "Content-Type": "application/json", 
-           
-    "x-api-key": API_KEY
-  
+             "Content-Type": "application/json",
+               "x-api-key": adminAuth
         },
         body: JSON.stringify(appointment)
     })
@@ -99,7 +95,8 @@ if(id){
         await fetch( API_URL,{
         method: "POST", 
         headers:{
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+             
         },
         body: JSON.stringify(appointment)
     });
@@ -156,14 +153,17 @@ function toastMessage(){
 
    
  async function deleteAppointment(id) {
-    const confirmDelete = confirm("Are you sure you want to delete this appointment?");
-    if (!confirmDelete) return;
+    const adminAuth = await getAdminKey(); 
+    if (!adminAuth) return;
+
+
 
     try {
+
         const res = await fetch(`${API_URL}/${id}`, {
             method: "DELETE",
            headers: {
-    "x-api-key": API_KEY
+    "x-api-key": adminAuth
   }
         });
 
@@ -172,7 +172,8 @@ function toastMessage(){
 
         if(res.ok){
                     console.log("Deleted successfully");
-
+    const confirmDelete = confirm("Are you sure you want to delete this appointment?");
+    if (!confirmDelete) return;
         await fetchAppointments();
 
         }else{
@@ -185,14 +186,26 @@ function toastMessage(){
 
 
 
-
-
-
 }
 
 
 
-function editAppointment(app){
+async function editAppointment(app){
+  const adminAuth = await getAdminKey(); 
+    if (!adminAuth) return;
+    console.log("Testing password for ID:", app._id);
+    try{
+        const res = await fetch(`${API_URL}/${app._id}`,{
+            methid: 'GET',
+            headers:{
+                 "x-api-key": adminAuth
+            }
+        });
+
+        if(!res.ok){
+            alert("Access is denied: Incorrect Password");
+        }else{
+    window.currentAdminKey = adminAuth;
     editedId.value = app._id;
 
     name.value = app.name;
@@ -204,6 +217,12 @@ function editAppointment(app){
     addBtn.innerText = "Save changes"
     form.style.display = "block";
     return;
+        }
+    }catch{error}{
+        console.error("Password verification failed");
+        alert("Server error; couldn't verify password")
+    }
+
 }
 
 
