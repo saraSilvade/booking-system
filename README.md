@@ -45,7 +45,9 @@ Follow these steps to get the project running on your local computer.
 - git clone [https://github.com/saraSilvade/booking-system.git](https://github.com/saraSilvade/booking-system.git)
 - cd booking-system
 - npm install
+- docker start mongo 
 - npm start
+- To test the front end open the live server
 
   Note*
   you need to set up the enviroment variables in your .env file
