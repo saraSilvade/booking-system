@@ -8,7 +8,7 @@ header{
     margin-top: 32px;
     margin-bottom: 16px;
     background-color: #fff;
-    width: 80%;
+    width: 90%;
 
       padding: 28.8px;
   border-radius: .75rem;
@@ -21,7 +21,7 @@ header h1{
 
 }
 .form-section{
-width: 80%;
+width: 90%;
     background-color: #fff;
    
     padding: 32px;
@@ -86,7 +86,7 @@ width: 100%;
 }
 
 .bookings-section{
-   width: 80%;
+   width: 90%;
     background-color: #fff;
     padding: 32px;
       padding: 1.875rem;
@@ -100,10 +100,13 @@ width: 100%;
   
 }
 
+
 table{
+
     width: 100%;
    border-collapse: collapse;
    margin-top: .625rem;
+   text-align: center;
 }
 
 
@@ -143,3 +146,5 @@ td{
         font-size: 0.9rem;
         cursor: pointer;
 }
+
+

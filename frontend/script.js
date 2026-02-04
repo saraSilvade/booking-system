@@ -13,13 +13,23 @@ const time = document.getElementById("time");
 const reason = document.getElementById("reason");
 const editedId = document.getElementById('editId');
 const addBtn = document.getElementById("create-button");
+ const tableBody = document.getElementById("appointments");
+
 
 
 async function fetchAppointments(){
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    const tableBody = document.getElementById("appointments");
+ if(data.length === 0){
+         
+
+  tableBody.innerHTML = ` <h2>There is no booked appointment yet</h2>`
+        console.log("No booked appointment yet");
+
+      
+        return;
+ }
 
     tableBody.innerHTML = "";
 
@@ -73,6 +83,7 @@ if(id){
         },
         body: JSON.stringify(appointment)
     })
+    
     editedId.value = "";
 } else{
         await fetch( API_URL,{
@@ -84,6 +95,8 @@ if(id){
     });
 
 }
+
+toastMessage();
 
 clearForm();
 
@@ -103,6 +116,33 @@ function clearForm(){
    
 
 }
+
+function toastMessage(){
+    const div = document.createElement("div");
+    div.innerHTML = `<h2>You have added a new appointment</h2>`;
+     div.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #7371e4ff;
+        color: white;
+        padding: 1.2rem 1rem;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    `;
+    document.body.appendChild(div);
+
+
+
+    setTimeout(()=>{
+        div.remove();
+    },3000)
+ 
+}
+
 
    
  async function deleteAppointment(id) {
@@ -139,9 +179,6 @@ function clearForm(){
 
 
 }
-
-
-
 
 
 
