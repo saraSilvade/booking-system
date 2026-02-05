@@ -1,14 +1,15 @@
 body {
   font-family: Arial, sans-serif;
   padding: 1.25rem;
-  background-color: rgb(228, 232, 246);
+  background-color: #e4e8f6;
 }
 header{
     text-align: left;
     margin-top: 32px;
     margin-bottom: 16px;
-    background-color: #fff;
+    background-color: #3063efce;
     width: 90%;
+    color: #fff;
 
       padding: 28.8px;
   border-radius: .75rem;
@@ -16,8 +17,9 @@ header{
 
 }
 header h1{
-    font-size: 24px;
-    color:rgb(59, 60, 67);
+    font-size: 1.2rem;
+  
+  
 
 }
 .form-section{
@@ -39,6 +41,7 @@ column-gap: 1.25rem;
 .form-section h2{
     font-size: 17.6px;
     font-weight: lighter;
+      color:  #2a1bcfce;
 }
 
 .input-group{
@@ -47,25 +50,25 @@ column-gap: 1.25rem;
   
 }
 
-.input-group label{
-    color: #00000087;
+.input-group label{  
+    color:   #2a1bcf88;
 }
 input{
     margin-bottom: 16px;
     margin-top: 16px;
      padding:9.6px;
-     border: .0625rem solid #cbd5e1;
+     border: .0625rem solid #2916fd4a;
+       
      border-radius: 4.8px;
      cursor: pointer;
    
 }
 textarea{
     height: 160px;
-       border: .0625rem solid #cbd5e1;
+       border: .0625rem solid #2916fd4a;
        border-radius:  4.8px;
 }
 .date-container {
-  
 width: 100%;
 
 }
@@ -81,7 +84,7 @@ width: 100%;
     color: white;
     font-size: 14.4px;
     border: none;
-    background-color: rgb(69, 139, 251);
+    background-color:   #3359ffdb;
     cursor: pointer;
 }
 
@@ -91,12 +94,14 @@ width: 100%;
     padding: 32px;
       padding: 1.875rem;
   border-radius: .75rem;
-  box-shadow: 0 .25rem .625rem rgba(0,0,0,0.1);
+  box-shadow: 0 .25rem .625rem rgba(21, 15, 199, 0.1);
   margin-top: 32px;
 }
 .bookings-section h2{
     font-size: medium;
     font-weight: lighter;
+     color:  #2a1bcfce;;
+  
   
 }
 
@@ -113,7 +118,8 @@ table{
 th { 
     text-align: left;
      padding: .75rem; 
-     color: #64748be7; 
+     color:   #2a1bcf7a;
+
      font-size: 0.9rem; 
    border-bottom: .12rem 
      solid #edf0f4c9; 
@@ -132,7 +138,7 @@ td{
        padding:0.8rem 2.4rem;
        border-radius: 0.2rem;
        border: none;
-        background-color: rgb(50, 177, 206);
+        background-color:  #0e9ed7;
         color: #fff;
         font-size: 0.9rem;
         cursor: pointer;
@@ -141,7 +147,7 @@ td{
     padding:0.8rem 2.4rem;
        border-radius: 0.3rem;
        border:none;
-       background-color: #ef4444;
+       background-color: #db2424;
         color: #fff;
         font-size: 0.9rem;
         cursor: pointer;

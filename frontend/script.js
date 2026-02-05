@@ -96,7 +96,7 @@ if(id){
     })
    
 
-toastMessage("Your changes been Saved!", "#1daed6ff");
+toastMessage("Your changes been Saved!", "#32B1CE");
   
 
     editedId.value = "";
@@ -110,7 +110,7 @@ toastMessage("Your changes been Saved!", "#1daed6ff");
         body: JSON.stringify(appointment)
     });
  
-toastMessage("Appointment added successfully!", "#27dd0bff");
+toastMessage("Appointment added successfully!", "#458BFB");
 
 }
 
@@ -141,7 +141,7 @@ function clearForm(){
 
 
 
-function toastMessage(message = "action", color = "#0fde38ff"){
+function toastMessage(message = "action", color = "#458BFB"){
   
     div.innerHTML = `<h2>${message}</h2>`;
      div.style.cssText = `
@@ -163,7 +163,7 @@ function toastMessage(message = "action", color = "#0fde38ff"){
 
     setTimeout(()=>{
         div.remove();
-    },3000)
+    },3000) 
  
 }
 
@@ -195,7 +195,7 @@ function toastMessage(message = "action", color = "#0fde38ff"){
                     console.log("Deleted successfully");
     const confirmDelete = confirm("Are you sure you want to delete this appointment?");
     if (!confirmDelete) return;
-    toastMessage("Appointment has been canceled!" , "#e3169bff")
+    toastMessage("Appointment has been canceled!" , "#950864ff")
         await fetchAppointments();
 
         }else{
