@@ -6,7 +6,6 @@ const API_URL = "http://localhost:3000/api/appointments";
 
 
 const form = document.getElementById("form-container");
-
 const name = document.getElementById("name");
 const number = document.getElementById("number");
 const email = document.getElementById("email");
@@ -22,7 +21,9 @@ async function getAdminKey() {
 }
 
 async function fetchAppointments(){
-    const res = await fetch(API_URL);
+
+    try{
+          const res = await fetch(API_URL);
     const data = await res.json();
 
  if(data.length === 0){
@@ -30,10 +31,9 @@ async function fetchAppointments(){
 
   tableBody.innerHTML = ` <h2>There is no booked appointment yet</h2>`
         console.log("No booked appointment yet");
-
-      
         return;
  }
+
 
     tableBody.innerHTML = "";
 
@@ -59,6 +59,11 @@ async function fetchAppointments(){
         `
      
     });
+
+    } catch(error){
+        return console.error("Network error:", error);
+    }
+
 
     
 }
@@ -120,6 +125,8 @@ function clearForm(){
     date.value = "";
     time.value = "";
     reason.value = "";
+    addBtn.innerText = "Add Appointment";
+    editedId.value = "";
    
 
 }
@@ -183,9 +190,6 @@ function toastMessage(){
     } catch (error) {
         console.error("Network error:", error);
     }
-
-
-
 }
 
 
@@ -193,10 +197,10 @@ function toastMessage(){
 async function editAppointment(app){
   const adminAuth = await getAdminKey(); 
     if (!adminAuth) return;
-    console.log("Testing password for ID:", app._id);
+ 
     try{
         const res = await fetch(`${API_URL}/${app._id}`,{
-            methid: 'GET',
+            method: 'GET',
             headers:{
                  "x-api-key": adminAuth
             }
@@ -214,18 +218,18 @@ async function editAppointment(app){
     date.value = app.date;
     time.value = app.time;
     reason.value = app.reason;
-    addBtn.innerText = "Save changes"
-    form.style.display = "block";
+    addBtn.innerText = "Save Changes"
+    form.style.display = "grid";
     return;
         }
     }catch{error}{
         console.error("Password verification failed");
         alert("Server error; couldn't verify password")
     }
-
+      addBtn.innerText = "Add Appointment"
 }
 
 
 
 
-fetchAppointments()
+fetchAppointments();
