@@ -15,7 +15,7 @@ const reason = document.getElementById("reason");
 const editedId = document.getElementById('editId');
 const addBtn = document.getElementById("create-button");
  const tableBody = document.getElementById("appointments");
-
+  const div = document.createElement("div");
 async function getAdminKey() {
     return prompt("Please enter your password to delete or edit an appointment:");
 }
@@ -94,7 +94,11 @@ if(id){
         },
         body: JSON.stringify(appointment)
     })
-    
+   
+
+toastMessage("Your changes been Saved!", "#1daed6ff");
+  
+
     editedId.value = "";
 } else{
         await fetch( API_URL,{
@@ -105,10 +109,12 @@ if(id){
         },
         body: JSON.stringify(appointment)
     });
+ 
+toastMessage("Appointment added successfully!", "#27dd0bff");
 
 }
 
-toastMessage();
+
 
 clearForm();
 
@@ -131,15 +137,19 @@ function clearForm(){
 
 }
 
-function toastMessage(){
-    const div = document.createElement("div");
-    div.innerHTML = `<h2>You have added a new appointment</h2>`;
+
+
+
+
+function toastMessage(message = "action", color = "#0fde38ff"){
+  
+    div.innerHTML = `<h2>${message}</h2>`;
      div.style.cssText = `
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #7371e4ff;
+        background-color:${color};
         color: white;
         padding: 19.2px 16px;
         border-radius: .3125rem;
@@ -159,6 +169,10 @@ function toastMessage(){
 
 
    
+
+
+
+
  async function deleteAppointment(id) {
     const adminAuth = await getAdminKey(); 
     if (!adminAuth) return;
@@ -181,6 +195,7 @@ function toastMessage(){
                     console.log("Deleted successfully");
     const confirmDelete = confirm("Are you sure you want to delete this appointment?");
     if (!confirmDelete) return;
+    toastMessage("Appointment has been canceled!" , "#e3169bff")
         await fetchAppointments();
 
         }else{
