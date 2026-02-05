@@ -4,7 +4,12 @@ const cors = require("cors");
 const appointmentRoutes = require("./routes/appointments");
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+    origin: "https://book-api-system.netlify.app/", 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "x-api-key"]
+}));
 
 app.use(express.json());
 
