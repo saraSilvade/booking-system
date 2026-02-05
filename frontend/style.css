@@ -7,7 +7,7 @@ header{
     text-align: left;
     margin-top: 32px;
     margin-bottom: 16px;
-    background-color: #3063efce;
+    background-color: #3f5caece;
     width: 90%;
     color: #fff;
 
@@ -41,7 +41,7 @@ column-gap: 1.25rem;
 .form-section h2{
     font-size: 17.6px;
     font-weight: lighter;
-      color:  #2a1bcfce;
+      color:  #1f1b4bce;
 }
 
 .input-group{
@@ -51,7 +51,7 @@ column-gap: 1.25rem;
 }
 
 .input-group label{  
-    color:   #2a1bcf88;
+    color:   #38309088;
 }
 input{
     margin-bottom: 16px;
@@ -84,7 +84,7 @@ width: 100%;
     color: white;
     font-size: 14.4px;
     border: none;
-    background-color:   #3359ffdb;
+    background-color:   #475bb5;
     cursor: pointer;
 }
 
