@@ -50,7 +50,7 @@ async function fetchAppointments(){
         <td>${app.time} </td>
         <td>${app.reason} </td>
 
-        <td >
+        <td class="btn-container" >
 
      
  <button type="button"  class="edit-btn" onclick='editAppointment(${JSON.stringify(app)})'>Edit</button>

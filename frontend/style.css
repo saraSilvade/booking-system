@@ -18,24 +18,23 @@ header{
 }
 header h1{
     font-size: 1.2rem;
-  
-  
 
 }
 .form-section{
 width: 90%;
     background-color: #fff;
-   
-    padding: 32px;
       padding: 1.875rem;
   border-radius: .75rem;
   box-shadow: 0 .25rem .625rem rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 2.5rem;
 }
 #form-container{
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 row-gap: 32px;
 column-gap: 1.25rem;
+  overflow: hidden;
 }
 
 .form-section h2{
@@ -47,11 +46,10 @@ column-gap: 1.25rem;
 .input-group{
     display: flex;
     flex-direction: column;
-  
 }
 
 .input-group label{  
-    color:   #38309088;
+    color:   #3f5daece;
 }
 input{
     margin-bottom: 16px;
@@ -99,9 +97,8 @@ width: 100%;
 }
 .bookings-section h2{
     font-size: medium;
-    font-weight: lighter;
-     color:  #2a1bcfce;;
-  
+    font-weight: medium;
+     color:    #3f5dae;
   
 }
 
@@ -114,11 +111,10 @@ table{
    text-align: center;
 }
 
-
 th { 
     text-align: left;
      padding: .75rem; 
-     color:   #2a1bcf7a;
+     color:  #3f5daeb6;
 
      font-size: 0.9rem; 
    border-bottom: .12rem 
@@ -153,4 +149,96 @@ td{
         cursor: pointer;
 }
 
+
+@media (max-width: 599px) {
+  body {
+width:100%;
+  padding: 0;
+}
+header{
+    text-align: center;
+    width: 100%;
+      padding:0.5rem;
+}
+.form-section{
+width: 100%;
+   padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: left;
+
+}
+#form-container{
+display:grid; 
+grid-template-columns: repeat(1, 1fr);
+column-gap: 0;
+justify-content: center;
+text-align: left;
+
+
+}
+
+input{
+     padding:0.5rem;
+     width: 16rem;
+}
+textarea{
+    height: 160px;
+      width: 16rem;
+}
+.date-container {
+width: 16rem;
+
+}
+.date-container #time, #date{
+width: 16rem;
+margin-right: 0;
+}
+#create-button{
+    width: 15rem;
+    padding:12.8px;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+.bookings-section{
+   width: 100%;
+    padding: 32px;
+      padding: 1rem;
+      overflow-x: hidden;
+ display: flex;
+ flex-direction: column;
+}
+
+
+
+table thead {
+    display: none;
+  }
+
+  tr{
+    border:1px solid #5c44c75f ;
+    border-radius: 0.4rem;
+  margin-bottom: 2rem;
+
+     
+  }
+ table, tbody, tr, td {
+display: block;
+    width: 100%;
+    text-align: left;
+    
+  }
+  td{
+    margin-top: 1rem;
+    
+  }
+  table #appointments .btn-container{
+    display: flex;
+    column-gap: 1rem;
+    margin-bottom: 1.5rem;
+    
+  }
+}
 
