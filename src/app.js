@@ -14,5 +14,6 @@ app.get('/', (req,res)=>{
     return res.status(200).json('Appointment Booking API');
 });
 
+
 app.use("/api/appointments", appointmentRoutes);
 module.exports = app;

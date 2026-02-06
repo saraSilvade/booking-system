@@ -1,8 +1,9 @@
 
+const API_URL = "https://booking-system-api-c0rz.onrender.com//api/appointments";
 
-const API_URL = "http://localhost:3000/api/appointments";
 
-//const API_URL = "https://booking-system-api.onrender.com/api/appointments";
+//const API_URL = "http://localhost:3000/api/appointments";
+
 
 
 const form = document.getElementById("form-container");
