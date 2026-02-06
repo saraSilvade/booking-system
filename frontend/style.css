@@ -11,7 +11,7 @@ header{
     width: 90%;
     color: #fff;
 
-      padding: 28.8px;
+       padding: 1.5rem 2.5rem;
   border-radius: .75rem;
   box-shadow: 0 .25rem .625rem rgba(0,0,0,0.1);
 
@@ -30,6 +30,7 @@ width: 90%;
   padding: 2.5rem;
 }
 #form-container{
+  width: 90%;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 row-gap: 32px;
