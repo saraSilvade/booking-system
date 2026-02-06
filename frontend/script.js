@@ -195,8 +195,8 @@ function toastMessage(message = "action", color = "#458BFB"){
                     console.log("Deleted successfully");
     const confirmDelete = confirm("Are you sure you want to delete this appointment?");
     if (!confirmDelete) return;
-    toastMessage("Appointment has been canceled!" , "#950864ff")
-        await fetchAppointments();
+
+   
 
         }else{
   console.error("Deleting appointment failed:", await res.text());
@@ -206,6 +206,8 @@ function toastMessage(message = "action", color = "#458BFB"){
     } catch (error) {
         console.error("Network error:", error);
     }
+        toastMessage("Appointment has been canceled!" , "#950864ff")
+             await fetchAppointments();
 }
 
 
