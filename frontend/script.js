@@ -169,7 +169,6 @@ function toastMessage(message = "action", color = "#458BFB"){
 }
 
 
-   
 
 
 
@@ -201,6 +200,7 @@ function toastMessage(message = "action", color = "#458BFB"){
 
         }else{
   console.error("Deleting appointment failed:", await res.text());
+
             return;
         }
     } catch (error) {
